@@ -1,0 +1,13 @@
+# Database config
+spring:
+  datasource:
+    url: "jdbc:postgresql://${DB_HOST:localhost}:5432/contacts"
+    username: "postgres"
+    password: "MyP@ssw0rdI5veryH@rd"
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+app:
+  jwtSecret: "xxqih09he9c92ebc92bec827e0c82bve8cy2ve40ycv08yv3o8yc"
+  jwtExpiration: 86400000
