@@ -30,6 +30,12 @@ public class ContactController {
         return contactService.listContacts(page, authenticatedUser);
     }
 
+    @GetMapping("{id}")
+    public ContactResponse getContact(@PathVariable Long id){
+        var authenticatedUser = authenticationService.getAuthenticatedUser();
+        return contactService.get(id, authenticatedUser);
+    }
+
     @PutMapping("{id}")
     public void update(@PathVariable Long id, @RequestBody UpdateContactRequest updateContactRequest){
         var authenticatedUser = authenticationService.getAuthenticatedUser();

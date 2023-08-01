@@ -6,9 +6,11 @@ import com.contact.list.api.request.UpdateContactRequest;
 import com.contact.list.api.response.ContactResponse;
 import com.contact.list.entities.Contact;
 import com.contact.list.entities.User;
+import com.contact.list.exceptions.ContactNotFoundException;
 import com.contact.list.mappers.ContactMapper;
 import com.contact.list.repositories.ContactRepository;
 import com.contact.list.security.AuthenticatedUser;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +23,12 @@ public class ContactService {
     private final ContactMapper contactMapper;
     public Page<Contact> findContactsFromUser(Pageable pageable, AuthenticatedUser user){
         return contactRepository.findByUserId(pageable, user.getId());
+    }
+
+    public ContactResponse get(long id, AuthenticatedUser authenticatedUser){
+        return contactRepository.findByIdAndUserId(id, authenticatedUser.getId())
+                .map(contactMapper::toContactResponse)
+                .orElseThrow(ContactNotFoundException::new);
     }
 
     public void create(CreateContactRequest contactDto, AuthenticatedUser authenticatedUser) {
@@ -48,6 +56,7 @@ public class ContactService {
         contactRepository.save(contact);
     }
 
+    @Transactional
     public void delete(long id, AuthenticatedUser authenticatedUser) {
         contactRepository.deleteByIdAndUserId(id, authenticatedUser.getId());
     }

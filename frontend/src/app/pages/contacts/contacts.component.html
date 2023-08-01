@@ -1,0 +1,39 @@
+
+<h2 class="mt-5">Contatos</h2>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="contactTable.dataSource" matSort>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+            <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefone </th>
+            <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-icon class="clickable" (click)="contactTable.edit(row.id)">edit</mat-icon>
+                <mat-icon class="clickable" (click)="contactTable.delete(row.id)">delete</mat-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="contactTable.displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: contactTable.displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Sem contatos cadastrados</td>
+        </tr>
+    </table>
+
+    <mat-paginator [length]="contactTable.length" [pageSize]="contactTable.pageSize"
+        [pageSizeOptions]="contactTable.pageSizeOptions" (page)="contactTable.update($event)"></mat-paginator>
+</div>

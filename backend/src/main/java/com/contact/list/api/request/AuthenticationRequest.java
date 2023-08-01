@@ -8,6 +8,7 @@ import lombok.Data;
 public class AuthenticationRequest {
 
     @Email
+    @NotEmpty
     private String email;
 
     @NotEmpty
