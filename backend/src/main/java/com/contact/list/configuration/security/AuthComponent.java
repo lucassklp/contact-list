@@ -1,4 +1,4 @@
-package com.contact.list.security;
+package com.contact.list.configuration.security;
 
 import com.contact.list.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

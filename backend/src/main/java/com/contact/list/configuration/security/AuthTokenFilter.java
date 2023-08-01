@@ -1,4 +1,4 @@
-package com.contact.list.security;
+package com.contact.list.configuration.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

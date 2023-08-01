@@ -2,11 +2,9 @@ package com.contact.list.services;
 
 import com.contact.list.api.request.AuthenticationRequest;
 import com.contact.list.api.response.TokenResponse;
-import com.contact.list.entities.User;
 import com.contact.list.exceptions.IncorrectCredentialException;
-import com.contact.list.repositories.UserRepository;
-import com.contact.list.security.AuthenticatedUser;
-import com.contact.list.security.JwtTokenHandler;
+import com.contact.list.configuration.security.AuthenticatedUser;
+import com.contact.list.configuration.security.JwtTokenHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;

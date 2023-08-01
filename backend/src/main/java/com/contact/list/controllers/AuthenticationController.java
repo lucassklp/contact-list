@@ -3,6 +3,8 @@ package com.contact.list.controllers;
 import com.contact.list.api.request.AuthenticationRequest;
 import com.contact.list.api.response.TokenResponse;
 import com.contact.list.services.AuthenticationService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -18,6 +20,7 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
     @PostMapping
+    @SecurityRequirements
     public ResponseEntity<TokenResponse> login(@RequestBody @Validated AuthenticationRequest authenticationRequestDto){
         var token = authenticationService.authenticate(authenticationRequestDto);
         return ResponseEntity.ok()

@@ -9,7 +9,7 @@ import com.contact.list.entities.User;
 import com.contact.list.exceptions.ContactNotFoundException;
 import com.contact.list.mappers.ContactMapper;
 import com.contact.list.repositories.ContactRepository;
-import com.contact.list.security.AuthenticatedUser;
+import com.contact.list.configuration.security.AuthenticatedUser;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
