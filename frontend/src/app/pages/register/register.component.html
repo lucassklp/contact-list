@@ -1,0 +1,26 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Cadastro</mat-card-title>
+        </mat-card-header>
+
+        <form [formGroup]="formGroup">
+            <mat-card-content>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Nome" formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="register()" class="btn-block">Cadastrar</button>
+            </mat-card-content>
+        </form>
+    </mat-card>
+</div>

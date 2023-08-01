@@ -17,7 +17,7 @@ export class ContactFieldsComponent implements OnInit, OnChanges {
     this.formGroup = fb.group({
       name: [null, Validators.required],
       phone: [null, Validators.required],
-      email: [null, Validators.email]
+      email: [null, [Validators.required, Validators.email]]
     })
   }
   ngOnChanges(changes: SimpleChanges): void {

@@ -6,11 +6,16 @@ import { CreateContactComponent } from './pages/create-contact/create-contact.co
 import { UpdateContactComponent } from './pages/update-contact/update-contact.component';
 import { AuthenticationGuard } from './guards/auth.guard';
 import { TemplateComponent } from './pages/template/template.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '',
@@ -29,6 +34,7 @@ const routes: Routes = [
         component: UpdateContactComponent,
       }
     ],
+    // This changed on newer angular version... class based Guards are now obsolete. see: https://github.com/angular/angular/pull/47924
     canActivate: [ (next: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthenticationGuard).canActivate(next, state) ]
   }
 ];

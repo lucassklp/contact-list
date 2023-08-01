@@ -25,7 +25,6 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-//import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -35,6 +34,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AlertDialogComponent } from './dialogs/alert-dialog/alert-dialog.component';
 import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { RegisterComponent } from './pages/register/register.component';
+import { NgxErrorsModule } from '@ngspot/ngx-errors';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.
     ContactFieldsComponent,
     TemplateComponent,
     AlertDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,9 @@ import { ConfirmDialogComponent } from './dialogs/confirm-dialog/confirm-dialog.
     MatPaginatorModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatGridListModule
+    MatGridListModule,
+    FlexLayoutModule,
+    NgxErrorsModule
   ],
   providers: [
     {

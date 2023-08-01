@@ -1,16 +1,16 @@
 package com.contact.list.api.request;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
 public class AuthenticationRequest {
 
     @Email
-    @NotEmpty
+    @NotBlank
     private String email;
 
-    @NotEmpty
+    @NotBlank
     private String password;
 }

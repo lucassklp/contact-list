@@ -23,7 +23,12 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
           this.toastr.message("Erro de validação no(s) seguinte(s) campo(s): " + properties.join(", "));
         }
         else {
-          this.toastr.message(error.error.error); //WTF kkkkk
+          if(error.error.error){
+            this.toastr.message(error.error.error);
+          }
+          else{
+            this.toastr.message("Um erro inesperado aconteceu");
+          }
         }
         return throwError(() => error.error);
       })

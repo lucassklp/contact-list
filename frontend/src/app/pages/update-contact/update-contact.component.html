@@ -1,4 +1,8 @@
-<mat-card class="box">
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+
+
+  <mat-card class="box">
     <mat-card-header>
       <mat-card-title>Atualizar contato</mat-card-title>
     </mat-card-header>
@@ -6,5 +10,7 @@
       <mat-card-content>
         <app-contact-fields [contact]="contact"></app-contact-fields>
       </mat-card-content>
-      <button mat-stroked-button color="accent" [disabled]="!contactFields?.isValid()" (click)="update()" class="btn-block">Atualizar</button>
+      <button mat-raised-button color="primary" [disabled]="!contactFields?.isValid()" (click)="update()" class="btn-block">Atualizar</button>
   </mat-card>
+
+</div>

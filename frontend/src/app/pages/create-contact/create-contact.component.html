@@ -1,12 +1,20 @@
-<mat-card class="box">
-    <mat-card-header>
-        <mat-card-title>Criar contato</mat-card-title>
-    </mat-card-header>
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
-    <mat-card-content>
-        <app-contact-fields></app-contact-fields>
-    </mat-card-content>
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>
+                Criar contato
+            </mat-card-title>
+        </mat-card-header>
 
-    <button mat-stroked-button color="accent" (click)="submit()" [disabled]="!contactFields?.isValid()"
-        class="btn-block">Criar</button>
-</mat-card>
+        <div class="example-form">
+            <mat-card-content>
+                <app-contact-fields></app-contact-fields>
+            </mat-card-content>
+        </div>
+
+        <button mat-raised-button color="primary" (click)="submit()" [disabled]="!contactFields?.isValid()"
+            class="btn-block">Criar</button>
+    </mat-card>
+
+</div>

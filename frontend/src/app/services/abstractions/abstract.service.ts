@@ -10,8 +10,8 @@ export class AbstractService<TModel> {
     return this.http.get<TModel>(`/api/${this.name}/${id}`)
   }
 
-  public save(template: TModel): Observable<void>{
-    return this.http.post<void>(`/api/${this.name}`, template);
+  public save(model: TModel): Observable<void>{
+    return this.http.post<void>(`/api/${this.name}`, model);
   }
 
   public list(offset: number, size: number): Observable<Page<TModel>> {
@@ -26,4 +26,9 @@ export class AbstractService<TModel> {
   public delete(id: number): Observable<void>{
     return this.http.delete<void>(`/api/${this.name}/${id}`);
   }
+
+  update(id: number, model: TModel): Observable<void>{
+    return this.http.put<void>(`/api/${this.name}/${id}`, model);
+  }
+
 }

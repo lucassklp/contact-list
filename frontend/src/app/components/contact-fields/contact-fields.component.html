@@ -1,14 +1,28 @@
-<form class="example-form" [formGroup]="formGroup">
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Name" formControlName="name">
+<form [formGroup]="formGroup">
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="name">
+        
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Phone" formControlName="phone">
+    <div ngxErrors="name">
+        <span ngxError="required" class="validation-error">Nome é obrigatório</span>
+    </div>
+
+    <mat-form-field class="full-width">
+        <input matInput placeholder="Telefone" formControlName="phone">
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
+    <div ngxErrors="phone">
+        <span ngxError="required" class="validation-error">Telefone é obrigatório</span>
+    </div>
+
+    <mat-form-field class="full-width">
         <input matInput placeholder="Email" formControlName="email">
     </mat-form-field>
+
+    <div ngxErrors="email">
+        <span ngxError="required" class="validation-error">Email  é obrigatório</span>
+        <span ngxError="email" class="validation-error">Email está inválido</span>
+    </div>
 
 </form>
