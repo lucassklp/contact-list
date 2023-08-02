@@ -12,7 +12,6 @@ import java.util.Optional;
 @Repository
 public interface ContactRepository extends JpaRepository<Contact, Long> {
 
-    Page<Contact> findByName(Pageable page, String name);
     Page<Contact> findByUserId(Pageable page, long userId);
     Optional<Contact> findByIdAndUserId(long id, long userId);
     void deleteByIdAndUserId(long id, long userId);

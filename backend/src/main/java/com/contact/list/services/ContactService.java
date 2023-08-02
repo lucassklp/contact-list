@@ -21,9 +21,6 @@ import org.springframework.stereotype.Service;
 public class ContactService {
     private final ContactRepository contactRepository;
     private final ContactMapper contactMapper;
-    public Page<Contact> findContactsFromUser(Pageable pageable, AuthenticatedUser user){
-        return contactRepository.findByUserId(pageable, user.getId());
-    }
 
     public ContactResponse get(long id, AuthenticatedUser authenticatedUser){
         return contactRepository.findByIdAndUserId(id, authenticatedUser.getId())
@@ -40,7 +37,8 @@ public class ContactService {
     }
 
     public void update(UpdateContactRequest contactDto, Long contactId, AuthenticatedUser authenticatedUser) {
-        var contact = contactRepository.findByIdAndUserId(contactId, authenticatedUser.getId()).orElseThrow();
+        var contact = contactRepository.findByIdAndUserId(contactId, authenticatedUser.getId())
+                .orElseThrow(ContactNotFoundException::new);
         if(contactDto.getName() != null){
             contact.setName(contactDto.getName());
         }

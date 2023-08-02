@@ -1,0 +1,17 @@
+# Database config
+
+spring:
+  datasource:
+    url: "jdbc:h2:mem:test"
+
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.H2Dialect"
+    hibernate:
+      ddl-auto: update
+
+app:
+  jwtSecret: "xxqih09he9c92ebc92bec827e0c82bve8cy2ve40ycv08yv3o8yc"
+  jwtExpiration: 86400000
