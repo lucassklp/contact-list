@@ -36,8 +36,8 @@ export abstract class AbstractTableService<TModel> {
     if(event){
       this.pageEvent = event;
     }
-    this.service.list((this.pageEvent.pageIndex) * this.pageEvent.pageSize, this.pageEvent.pageSize).subscribe(result => {
-      this.length = result.size
+    this.service.list(this.pageEvent.pageIndex, this.pageEvent.pageSize).subscribe(result => {
+      this.length = result.totalElements
       this.dataSource = new MatTableDataSource(result.content)
     })
   }
